@@ -14,7 +14,9 @@ function! s:fnameescape(file) abort
   endif
 endfunction
 
-nnoremap <silent> <Plug>VinegarUp :call <SID>opendir('edit')<CR>
+" Do not keep orphan/stray netrw buffers in bufferlist
+" regardless of the setting of 'hidden'.
+nnoremap <silent> <Plug>VinegarUp :call <SID>opendir('Explore')<CR>
 if empty(maparg('-', 'n'))
   nmap - <Plug>VinegarUp
 endif
