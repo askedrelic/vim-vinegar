@@ -23,7 +23,7 @@ nnoremap <silent> <Plug>VinegarTabUp :call <SID>opendir('tabedit')<CR>
 nnoremap <silent> <Plug>VinegarSplitUp :call <SID>opendir('split')<CR>
 nnoremap <silent> <Plug>VinegarVerticalSplitUp :call <SID>opendir('vsplit')<CR>
 
-function! s:opendir(cmd)
+function! s:opendir(cmd) abort
   if empty(expand('%'))
     execute a:cmd '.'
   else
@@ -33,7 +33,7 @@ function! s:opendir(cmd)
   endif
 endfunction
 
-function! s:seek(file)
+function! s:seek(file) abort
   let pattern = '^ *\%(▸ \)\?'.escape(a:file, '.*[]~\').'\>'
   call search(pattern, 'wc')
   return pattern
